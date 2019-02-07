@@ -18,4 +18,23 @@ router.get('/', (req, res) => {
     }
 });
 
+router.get('/users', (req, res) => {
+    switch (req.isAuthenticated()) {
+        case true:
+            let queryText = `SELECT username FROM person;`
+            pool.query(queryText).then(response => {
+                res.send(response.rows);
+            }).catch(error => {
+                console.log('error getting users', error);
+                res.sendStatus(500);
+            })
+            break;
+        case false:
+            res.sendStatus(403);
+            break;
+        default:
+            break;
+    }
+})
+
 module.exports = router;

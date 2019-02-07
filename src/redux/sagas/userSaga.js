@@ -24,8 +24,19 @@ function* fetchUser() {
   }
 }
 
+function* fetchUsersSummary() {
+  try{
+    let response = yield axios.get('/api/secrets/users');
+    yield put({type: 'SET_USERS', payload: response.data})
+  }
+  catch(err){
+    yield console.log('error in fetchUsers saga', err);
+  }
+}
+
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
+  yield takeLatest('FETCH_USERS', fetchUsersSummary);
 }
 
 export default userSaga;
