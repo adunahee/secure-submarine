@@ -205,9 +205,9 @@ Before pushing to Heroku, run `npm run build` in terminal. This will create a bu
 
 [X] Create a new Heroku project
 [X] Link the Heroku project to the project GitHub Repo
-1. Create an Heroku Postgres database
-1. Connect to the Heroku Postgres database from Postico
-1. Create the necessary tables
+[X] Create an Heroku Postgres database
+[X] Connect to the Heroku Postgres database from Postico
+[X] Create the necessary tables
 [X] Add an environment variable for `SERVER_SESSION_SECRET` with a nice random string for security
 1. In the deploy section, select manual deploy
 
